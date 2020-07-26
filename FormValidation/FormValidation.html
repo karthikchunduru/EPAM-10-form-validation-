@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href= "style.css">
+</head>
+<body> 
+	<script>  
+	function validateform()
+	{  
+		var name1=document.register_form.field1.value;
+                  	var name2=document.register_form.field2.value;  
+		var pattern = /^[A-Za-z]*$/;
+		if(!pattern.test(name1) || !pattern.test(name2))
+		{
+		alert("Please enter valid Name");
+		return false;
+		}
+		else if (name1=="" || name2=="")
+		{  
+	  	alert("Please fill Name field");  
+	  	return false;  
+		} 
+		var phn=document.register_form.field3.value;
+		if(isNaN(phn))
+		{
+		alert("Please fill Phone number field");
+		return false; 
+		} 
+		else if(phn.length!=10)
+		{  
+	  	alert("Please enter valid Phone number");  
+	  	return false;  
+		}
+		var email=document.register_form.field4.value;
+		if (email=="")
+		{  
+	  	alert("Please fill Email field");  
+	  	return false;  
+		} 
+		var r=document.register_form.field5.value;
+		var pattern2=/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
+		if (r==null || r=="")
+		{  
+	  	alert("Enter password field");  
+	  	return false;  
+		}
+		if(!pattern2.test(r))
+		{
+	  	alert("Must contain at least one number and one uppercase and lowercase letter, and at least 6 or more characters");  
+	  	return false; 
+		}
+	
+	}  
+	</script> 
+	<div class="form-style-3" style="max-width:500px;margin:auto;">
+	
+	<form name="register_form" method="post" action="AfterSubmit.html" onsubmit="return validateform()" >
+	<fieldset><legend>Registration</legend>
+	<label for="field1"><span>First Name <span class="required">*</span></span><input type="text" class="input-field" name="field1" value="" /></label>
+	<label for="field2"><span>Last Name<span class="required">*</span></span><input type="text" class="input-field" name="field2" value="" /></label>
+	<label for="field3"><span>Mobile Number<span class="required">*</span></span><input type="text" class="input-field" name="field3" value="" /></label></br>	
+	<label for="field4"><span>Email Address<span class="required">*</span></span><input type="email" class="input-field" name="field4" value="" /></label>
+	<label for="field5"><span>Password<span class="required">*</span></span><input type="password" class="input-field" name="field5" value="" /></label>
+	<label><center><span> </span><input type="submit" value="Submit" /></center></label>
+	</form>
+	</div>
+</body>
+</html>
